@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 15.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -16,6 +16,7 @@ URL: http://git.fedorahosted.org/git/livecd
 # make dist
 # scp livecd*.tar.bz2 fedorahosted.org:livecd
 Source0: http://fedorahosted.org/releases/l/i/livecd/%{name}-%{version}.tar.bz2
+Patch0: livecd-tools-remove-releasever.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: python-imgcreate = %{epoch}:%{version}-%{release}
 Requires: mkisofs
@@ -60,6 +61,7 @@ like live image or appliances.
 
 %prep
 %setup -q
+%patch0 -p1 
 
 %build
 make
@@ -92,6 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Jan 04 2011 Dennis Gilmore <dennis@ausil.us> - 15.2-2
+- patch to drop support of releasever in urls it destroys image creation in koji
+
 * Wed Dec 22 2010 Brian C. Lane <bcl@redhat.com> - 15.2-1
 - Version 5.2 (bcl)
 - Assign a device-mapper UUID w/ subsystem prefix to the dm snapshot. (dlehman)
