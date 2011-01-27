@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 15.2
+Version: 15.3
 Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
@@ -16,7 +16,6 @@ URL: http://git.fedorahosted.org/git/livecd
 # make dist
 # scp livecd*.tar.bz2 fedorahosted.org:livecd
 Source0: http://fedorahosted.org/releases/l/i/livecd/%{name}-%{version}.tar.bz2
-Patch0: livecd-tools-remove-releasever.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: python-imgcreate = %{epoch}:%{version}-%{release}
 Requires: mkisofs
@@ -61,7 +60,6 @@ like live image or appliances.
 
 %prep
 %setup -q
-%patch0 -p1 
 
 %build
 make
@@ -94,6 +92,14 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Jan 27 2011 Brian C. Lane <bcl@redhat.com> - 15.3-1
+- Version 15.3 (bcl)
+- Remove boot from local drive option (bcl)
+- Check for one big initrd.img (#671900) (bcl)
+- Make xz the default compression type for live images. (bruno)
+- Update documentation for xz availability. (bruno)
+- Change releasever to a command line option (#667474) (bcl)
+
 * Tue Jan 04 2011 Dennis Gilmore <dennis@ausil.us> - 15.2-2
 - patch to drop support of releasever in urls it destroys image creation in koji
 
