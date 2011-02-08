@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 15.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -92,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:15.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
 * Thu Jan 27 2011 Brian C. Lane <bcl@redhat.com> - 15.3-1
 - Version 15.3 (bcl)
 - Remove boot from local drive option (bcl)
