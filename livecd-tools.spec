@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 15.3
-Release: 3%{?dist}
+Version: 16.0
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -92,6 +92,25 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Feb 15 2011 Brian C. Lane <bcl@redhat.com> 16.0-1
+- Version 16.0 (bcl)
+- Add tmpdir to LiveImageCreator (bcl)
+- Source may be a file or a block device, mount accordingly (bcl)
+- Enable reading of SquashFS compression type. (fgrose)
+- Enable cloning of a running LiveOS image into a fresh iso. (fgrose)
+- Update usage documentation & add it to the script (fgrose)
+- Support the propagation of an installed Live image (fgrose)
+- Rename image source- and target-related variables (fgrose)
+- Align start of partition at 1MiB (#668967) (bcl)
+- Pass tmpdir to ImageCreator class initializer (#476676) (bcl)
+- Add tmpdir to ImageCreator class initializer (#476676) (bcl)
+- Enable an optional tmpdir for e2image in fs.resize2fs() (fgrose)
+- Bad karma commit reverted; The option to boot from a local drive *MUST* exist
+  as 99.9% of our consumers have default desktop hardware configurations.
+  (jeroen.van.meeuwen)
+- Really switch the default compression type, not just the default cli option
+  value (jeroen.van.meeuwen)
+
 * Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:15.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
