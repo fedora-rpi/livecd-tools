@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 16.0
+Version: 16.1
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -92,6 +92,16 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri Feb 18 2011 Brian C. Lane <bcl@redhat.com> 16.1-1
+- Version 16.1 (bcl)
+- Print reason for sudden exit (bcl)
+- Fix skipcopy usage with DVD iso (#644194) (bmj001)
+- Move selinux relabel to after %post (#648591) (bcl)
+- Add support for virtio disks to livecd (#672936) (bcl)
+- Support attached LiveOS devices as well as image files for LiveOS editing.
+  (fgrose)
+- Check return value on udevadm (#637258) (bcl)
+
 * Tue Feb 15 2011 Brian C. Lane <bcl@redhat.com> 16.0-1
 - Version 16.0 (bcl)
 - Add tmpdir to LiveImageCreator (bcl)
