@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 16.1
+Version: 16.2
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -92,6 +92,17 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Mar 14 2011 Brian C. Lane <bcl@redhat.com> 16.2-1
+- Version 16.2 (bcl)
+- livecd-iso-to-disk: Catch all failures (lkundrak)
+- Mailing list address changed (lkundrak)
+- Fall back to to msdos format if no extlinux (bcl)
+- Create an ext4 filesystem by default for home.img (fgrose)
+- Add error checks to home.img creation (bcl)
+- livecd-iso-to-disk Detect more disk space issues (fgrose)
+- gptmbr can be written directly to the mbr (bcl)
+- Fixup livedir support (#679023) (jan.kratochvil)
+
 * Fri Feb 18 2011 Brian C. Lane <bcl@redhat.com> 16.1-1
 - Version 16.1 (bcl)
 - Print reason for sudden exit (bcl)
