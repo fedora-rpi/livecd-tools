@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 16.2
+Version: 16.3
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -92,6 +92,26 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Mar 31 2011 Brian C. Lane <bcl@redhat.com> 16.3-1
+- Version 16.3 (bcl)
+- Copy old initrd/xen files to isolinux when using base-on (#690940) (bcl)
+- Don't fail on missing splash image (bcl)
+- Images go into $SYSLINUXPATH (bcl)
+- fix typo (bcl)
+- Check for spaces in fs label when using overlay (#597599) (bcl)
+- Fix logic for syslinux check (bcl)
+- Fix image-creator symlink so that it is relative (bcl)
+- symlink /etc/mtab to /proc/self/mounts (#688277) (bcl)
+- liveimage-mount installed LiveOS with overlay (fgrose)
+- Fix overzealous boot->BOOT change (bcl)
+- Fix return code failure (#689360) (fgrose)
+- Fix pipefailure in checkSyslinuxVersion (#689329) (fgrose)
+- Symlink image-creator instead of hardlink (#689167) (bcl)
+- Add extracting BOOTX64.efi from iso (#688258) (bcl)
+- Add repo to DVD EFI install config file (#688258) (bcl)
+- Add EFI support to netboot (#688258) (bcl)
+- Support /EFI/BOOT or /EFI/boot (#688258) (bcl)
+
 * Mon Mar 14 2011 Brian C. Lane <bcl@redhat.com> 16.2-1
 - Version 16.2 (bcl)
 - livecd-iso-to-disk: Catch all failures (lkundrak)
