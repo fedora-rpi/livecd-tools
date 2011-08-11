@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 16.3
+Version: 17.0
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -29,6 +29,7 @@ Requires: /sbin/extlinux
 %ifarch ppc
 Requires: yaboot
 %endif
+Requires: dumpet
 BuildRequires: python
 BuildRequires: /usr/bin/pod2man
 
@@ -52,6 +53,7 @@ Requires: system-config-keyboard >= 1.3.0
 Requires: python-urlgrabber
 Requires: libselinux-python
 Requires: dbus-python
+Requires: policycoreutils
 
 %description -n python-imgcreate
 Python modules that can be used for building images for things
@@ -92,6 +94,19 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Aug 11 2011 Brian C. Lane <bcl@redhat.com> 17.0-1
+- Version 17.0
+- Quote $SRC so iso's with spaces will work (#694915) (bruno)
+- Handle move to /sys/fs/selinux (#728576) (dwalsh)
+- master is now v17.X (bcl)
+- Turn on the legacy_boot flag for EFI (#680563) (bcl)
+- Don't ask about replacing MBR when formatting (bcl)
+- Make MBR replacement message more clear (bcl)
+- Ensure previous filesystems are wiped when formatting (#712553) (bcl)
+- Modify pxeboot script to work with F16 (bcl)
+- Add initial support for ARM architectures (martin.langhoff)
+- Copy updates and product image files (bcl)
+
 * Thu Mar 31 2011 Brian C. Lane <bcl@redhat.com> 16.3-1
 - Version 16.3 (bcl)
 - Copy old initrd/xen files to isolinux when using base-on (#690940) (bcl)
