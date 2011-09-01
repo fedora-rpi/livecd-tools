@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 17.0
+Version: 17.1
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -22,6 +22,7 @@ Requires: mkisofs
 Requires: isomd5sum
 Requires: parted
 Requires: pyparted
+Requires: util-linux
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -94,6 +95,14 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Sep 01 2011 Brian C. Lane <bcl@redhat.com> 17.1-1
+- Version 17.1 (bcl)
+- Add title and product args (#669120) (bcl)
+- Skip bind mounts when source isn't there (bcl)
+- Add new syslinux.cfg template (#734173) (bcl)
+- Use copyFile on the iso (bcl)
+- Use rsync to copy if available (bcl)
+
 * Thu Aug 11 2011 Brian C. Lane <bcl@redhat.com> 17.0-1
 - Version 17.0
 - Quote $SRC so iso's with spaces will work (#694915) (bruno)
