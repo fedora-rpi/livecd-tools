@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 17.1
+Version: 17.2
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -23,6 +23,8 @@ Requires: isomd5sum
 Requires: parted
 Requires: pyparted
 Requires: util-linux
+Requires: dosfstools
+Requires: e2fsprogs
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -95,6 +97,13 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Nov 03 2011 Brian C. Lane <bcl@redhat.com> 17.2-1
+- Version 17.2 (bcl)
+- Fix indent and typo in liveimage-mount (#749643) (bcl)
+- Make sure the target is labeled LIVE (#751213) (bcl)
+- Only check first match for boot flag (#739411) (bcl)
+- Stop creating backup image before resizing (#737243) (bcl)
+
 * Thu Sep 01 2011 Brian C. Lane <bcl@redhat.com> 17.1-1
 - Version 17.1 (bcl)
 - Add title and product args (#669120) (bcl)
