@@ -86,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/livecd-iso-to-pxeboot
 %{_bindir}/image-creator
 %{_bindir}/liveimage-mount
+%{_bindir}/edit-livecd
 %{_bindir}/mkbiarch
 
 %files -n python-imgcreate
