@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 17.2
+Version: 17.3
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -98,6 +98,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Dec 21 2011 Brian C. Lane <bcl@redhat.com> 17.3-1
+- Version 17.3 (bcl)
+- python-imgcreate: remove -f from second lokkit call (#769457) (bcl)
+- Install edit-livecd to /usr/bin (bcl)
+
 * Thu Nov 03 2011 Brian C. Lane <bcl@redhat.com> 17.2-1
 - Version 17.2 (bcl)
 - Fix indent and typo in liveimage-mount (#749643) (bcl)
