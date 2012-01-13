@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 17.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:17.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Wed Dec 21 2011 Brian C. Lane <bcl@redhat.com> 17.3-1
 - Version 17.3 (bcl)
 - python-imgcreate: remove -f from second lokkit call (#769457) (bcl)
