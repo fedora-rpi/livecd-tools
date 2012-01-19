@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 17.3
-Release: 2%{?dist}
+Version: 17.4
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -98,6 +98,15 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Jan 18 2012 Brian C. Lane <bcl@redhat.com> - 17.4-1
+- Version 17.4 (bcl)
+- selinux may be off on the host, skip mount (#737064) (bcl)
+- Set base_persistdir (#741614) (bcl)
+- Fix the fix for dracut modules (#766955) (bcl)
+- Use dracut.conf.d instead fo dracut.conf (bcl)
+- dracut needs dmsquash-live explicitly included (bcl)
+- edit-livecd: -k --kickstart option (apevec)
+
 * Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:17.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
