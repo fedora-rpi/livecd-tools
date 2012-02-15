@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 17.4
+Version: 18.0
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -98,6 +98,13 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Feb 15 2012 Brian C. Lane <bcl@redhat.com> - 18.0-1
+- Version 18.0 (bcl)
+- check for valid script path before editing livecd image and update usage
+  options confusion (jboggs)
+- imgcreate: fix typo in ResizeError (bcl)
+- add missing selinux_mountpoint class object to edit-livecd (jboggs)
+
 * Wed Jan 18 2012 Brian C. Lane <bcl@redhat.com> - 17.4-1
 - Version 17.4 (bcl)
 - selinux may be off on the host, skip mount (#737064) (bcl)
