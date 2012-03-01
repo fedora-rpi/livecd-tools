@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.1
+Version: 18.2
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -25,6 +25,7 @@ Requires: pyparted
 Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
+Requires: lorax
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -98,6 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Mar 01 2012 Brian C. Lane <bcl@redhat.com> - 18.2-1
+- Version 18.2 (bcl)
+- livecd-iso-to-disk: Add 2MB slop to calculation (bcl)
+- Change EFI/boot to EFI/BOOT (mjg)
+- Add support for generating EFI-bootable hybrid images (mjg)
+
 * Thu Feb 23 2012 Brian C. Lane <bcl@redhat.com> - 18.1-1
 - Version 18.1 (bcl)
 - livecd-iso-to-disk: create partition for iso (bcl)
