@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.2
+Version: 18.3
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -99,6 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Apr 16 2012 Brian C. Lane <bcl@redhat.com> 18.3-1
+- Version 18.3 (bcl)
+- add support for cost in kickstart repo line (#735079) (mads)
+- skip copying DVD image file with skipcopy option (786037) (bcl)
+- remove kernel and initrd from EFI/BOOT (#811438) (bcl)
+- fix syntax problem in detectsrctype (bcl)
+
 * Thu Mar 01 2012 Brian C. Lane <bcl@redhat.com> - 18.2-1
 - Version 18.2 (bcl)
 - livecd-iso-to-disk: Add 2MB slop to calculation (bcl)
