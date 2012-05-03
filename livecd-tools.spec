@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.3
+Version: 18.5
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -25,7 +25,7 @@ Requires: pyparted
 Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
-Requires: lorax
+Requires: lorax >= 18.3
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -99,6 +99,17 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu May 03 2012 Brian C. Lane <bcl@redhat.com> 18.5-1
+- Version 18.5 (bcl)
+- Include Mac volume name graphic (mjg)
+- copy repo data to USB for F17 (#806166) (bcl)
+- Version 18.4 (bcl)
+- allow for use of yum plugins during livecd creation (notting)
+- Capitalise EFI names (mjg)
+- Add tighter Mac boot image integration (mjg)
+- fix quoting with basename and SRC (#814174) (bcl)
+- check for LIVE-REPO partition when writing DVD (#813905) (bcl)
+
 * Mon Apr 16 2012 Brian C. Lane <bcl@redhat.com> 18.3-1
 - Version 18.3 (bcl)
 - add support for cost in kickstart repo line (#735079) (mads)
