@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 18.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:18.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
 * Thu May 03 2012 Brian C. Lane <bcl@redhat.com> 18.5-1
 - Version 18.5 (bcl)
 - Include Mac volume name graphic (mjg)
