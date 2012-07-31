@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.5
-Release: 2%{?dist}
+Version: 18.6
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -99,6 +99,15 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Jul 31 2012 Brian C. Lane <bcl@redhat.com> 18.6-1
+- Version 18.6 (bcl)
+- switch to using rd.live.image instead of liveimg (bcl)
+- dracut doesn't need explicit filesystems (bcl)
+- livecd-creator: Add --cacheonly for offline use (martin)
+- Implement cacheonly (offline) support in ImageCreator and LoopCreator (martin)
+- if mounting squashfs add ro mount option (jboggs)
+- imgcreate: Use copy2 for TimezoneConfig (#829032) (bcl)
+
 * Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:18.5-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
