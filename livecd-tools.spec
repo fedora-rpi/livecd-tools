@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.6
+Version: 18.7
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -99,6 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Aug 02 2012 Brian C. Lane <bcl@redhat.com> 18.7-1
+- Version 18.7 (bcl)
+- Recognize rd.live.image as well as liveimg in sed scripts of livecd-iso-to-
+  disk & edit-livecd (fgrose)
+- fix /etc/localtime file vs. symlink (#829032) (bcl)
+
 * Tue Jul 31 2012 Brian C. Lane <bcl@redhat.com> 18.6-1
 - Version 18.6 (bcl)
 - switch to using rd.live.image instead of liveimg (bcl)
