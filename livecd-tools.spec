@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.7
+Version: 18.8
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -99,6 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Aug 06 2012 Brian C. Lane <bcl@redhat.com> 18.8-1
+- Version 18.8 (bcl)
+- dracut needs to load vfat and msdos filesystems (bcl)
+
 * Thu Aug 02 2012 Brian C. Lane <bcl@redhat.com> 18.7-1
 - Version 18.7 (bcl)
 - Recognize rd.live.image as well as liveimg in sed scripts of livecd-iso-to-
