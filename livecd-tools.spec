@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.9
+Version: 18.10
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -99,6 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.9-1
+- Version 18.10 (bcl)
+- use cp -r instead of -a (bcl)
+
 * Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.9-1
 - Version 18.9 (bcl)
 - fix extra-kernel-args (#853570) (bcl)
