@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.8
+Version: 18.9
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -99,6 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.9-1
+- Version 18.9 (bcl)
+- fix extra-kernel-args (#853570) (bcl)
+- New location for GRUB2 config on UEFI (#851220) (bcl)
+- Add nocleanup option to retain temp files (bcl)
+- Update imgcreate for UEFI Secure Boot (bcl)
+
 * Mon Aug 06 2012 Brian C. Lane <bcl@redhat.com> 18.8-1
 - Version 18.8 (bcl)
 - dracut needs to load vfat and msdos filesystems (bcl)
