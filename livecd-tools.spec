@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.10
-Release: 2%{?dist}
+Version: 18.11
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -18,7 +18,6 @@ URL: http://git.fedorahosted.org/git/livecd
 Source0: http://fedorahosted.org/releases/l/i/livecd/%{name}-%{version}.tar.bz2
 # Drop the requirements for grub2-efi and shim: breaks 32-bit compose
 # and not needed as we have them in comps
-Patch0: livecd-tools-18.10-efi_requires.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: python-imgcreate = %{epoch}:%{version}-%{release}
 Requires: mkisofs
@@ -69,7 +68,6 @@ like live image or appliances.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 make
@@ -103,6 +101,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Sep 13 2012 Brian C. Lane <bcl@redhat.com> 18.11-1
+- Version 18.11 (bcl)
+- not copying UEFI files shouldn't be fatal (#856893) (bcl)
+- don't require shim and grub2-efi (#856893) (bcl)
+
 * Wed Sep 12 2012 Adam Williamson <awilliam@redhat.com> 18.10-2
 - efi_requires.patch: don't force grub2-efi and shim into the package
   list, it breaks 32-bit compose and isn't needed, we have it in comps
