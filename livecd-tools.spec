@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.11
+Version: 18.12
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -101,6 +101,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Oct 02 2012 Brian C. Lane <bcl@redhat.com> 18.12-1
+- Version 18.12 (bcl)
+- Remove grub 0.97 splash (bcl)
+
 * Thu Sep 13 2012 Brian C. Lane <bcl@redhat.com> 18.11-1
 - Version 18.11 (bcl)
 - not copying UEFI files shouldn't be fatal (#856893) (bcl)
