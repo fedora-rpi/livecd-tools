@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 18.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -28,6 +28,7 @@ Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
 Requires: lorax >= 18.3
+Requires: hfsplus-tools
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -101,6 +102,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu Oct 25 2012 Brian C. Lane <bcl@redhat.com> 18.12-2
+- Require hfsplus-tools so that images will boot on Mac
+
 * Tue Oct 02 2012 Brian C. Lane <bcl@redhat.com> 18.12-1
 - Version 18.12 (bcl)
 - Remove grub 0.97 splash (bcl)
