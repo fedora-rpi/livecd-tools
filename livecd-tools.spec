@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.12
-Release: 2%{?dist}
+Version: 18.13
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -102,6 +102,19 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Dec 04 2012 Brian C. Lane <bcl@redhat.com> 18.13-1
+- Version 18.13 (bcl)
+- silence the selinux umount error (bcl)
+- use systemd instead of inittab for startx (bcl)
+- set selinux permissive mode when building (bcl)
+- fix kickstart logging entry (bcl)
+- write hostname to /etc/hostname (#870805) (bcl)
+- add nocontexts for selinux (#858373) (bcl)
+- remove lokkit usage (bcl)
+- use locale.conf not sysconfig/i18n (#870805) (bcl)
+- don't write clock (#870805) (bcl)
+- add remainder of virtio modules to initrd (#864012) (bcl)
+
 * Thu Oct 25 2012 Brian C. Lane <bcl@redhat.com> 18.12-2
 - Require hfsplus-tools so that images will boot on Mac
 
