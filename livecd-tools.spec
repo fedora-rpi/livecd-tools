@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.13
+Version: 18.14
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -102,6 +102,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri Dec 14 2012 Brian C. Lane <bcl@redhat.com> 18.14-1
+- Version 18.14 (bcl)
+- add --verifyudev to dmsetup (#885385) (bcl)
+
 * Tue Dec 04 2012 Brian C. Lane <bcl@redhat.com> 18.13-1
 - Version 18.13 (bcl)
 - silence the selinux umount error (bcl)
