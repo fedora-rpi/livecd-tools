@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.8
+Version: 18.14
 Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
@@ -16,6 +16,8 @@ URL: http://git.fedorahosted.org/git/livecd
 # make dist
 # scp livecd*.tar.bz2 fedorahosted.org:livecd
 Source0: http://fedorahosted.org/releases/l/i/livecd/%{name}-%{version}.tar.bz2
+# Drop the requirements for grub2-efi and shim: breaks 32-bit compose
+# and not needed as we have them in comps
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: python-imgcreate = %{epoch}:%{version}-%{release}
 Requires: mkisofs
@@ -26,6 +28,7 @@ Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
 Requires: lorax >= 18.3
+Requires: hfsplus-tools
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -99,6 +102,55 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Sat Feb 23 2013 Bruno Wolff III <bruno@wolff.to> 18.14-2
+- Get an up to date build in rawhide, since the mass 
+- rebuild used a master branch that was behind the f18 
+- branch and builds from f18 are no longer inherited.
+
+* Fri Dec 14 2012 Brian C. Lane <bcl@redhat.com> 18.14-1
+- Version 18.14 (bcl)
+- add --verifyudev to dmsetup (#885385) (bcl)
+
+* Tue Dec 04 2012 Brian C. Lane <bcl@redhat.com> 18.13-1
+- Version 18.13 (bcl)
+- silence the selinux umount error (bcl)
+- use systemd instead of inittab for startx (bcl)
+- set selinux permissive mode when building (bcl)
+- fix kickstart logging entry (bcl)
+- write hostname to /etc/hostname (#870805) (bcl)
+- add nocontexts for selinux (#858373) (bcl)
+- remove lokkit usage (bcl)
+- use locale.conf not sysconfig/i18n (#870805) (bcl)
+- don't write clock (#870805) (bcl)
+- add remainder of virtio modules to initrd (#864012) (bcl)
+
+* Thu Oct 25 2012 Brian C. Lane <bcl@redhat.com> 18.12-2
+- Require hfsplus-tools so that images will boot on Mac
+
+* Tue Oct 02 2012 Brian C. Lane <bcl@redhat.com> 18.12-1
+- Version 18.12 (bcl)
+- Remove grub 0.97 splash (bcl)
+
+* Thu Sep 13 2012 Brian C. Lane <bcl@redhat.com> 18.11-1
+- Version 18.11 (bcl)
+- not copying UEFI files shouldn't be fatal (#856893) (bcl)
+- don't require shim and grub2-efi (#856893) (bcl)
+
+* Wed Sep 12 2012 Adam Williamson <awilliam@redhat.com> 18.10-2
+- efi_requires.patch: don't force grub2-efi and shim into the package
+  list, it breaks 32-bit compose and isn't needed, we have it in comps
+
+* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.10-1
+- Version 18.10 (bcl)
+- use cp -r instead of -a (bcl)
+
+* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.9-1
+- Version 18.9 (bcl)
+- fix extra-kernel-args (#853570) (bcl)
+- New location for GRUB2 config on UEFI (#851220) (bcl)
+- Add nocleanup option to retain temp files (bcl)
+- Update imgcreate for UEFI Secure Boot (bcl)
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:18.8-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
