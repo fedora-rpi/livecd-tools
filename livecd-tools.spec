@@ -111,7 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 - Version 18.14 (bcl)
 - add --verifyudev to dmsetup (#885385) (bcl)
 
-* Tue Dec 04 2012 Brian C. Lane <bcl@redhat.com> 18.13-1
 - Version 18.13 (bcl)
 - silence the selinux umount error (bcl)
 - use systemd instead of inittab for startx (bcl)
@@ -124,27 +123,21 @@ rm -rf $RPM_BUILD_ROOT
 - don't write clock (#870805) (bcl)
 - add remainder of virtio modules to initrd (#864012) (bcl)
 
-* Thu Oct 25 2012 Brian C. Lane <bcl@redhat.com> 18.12-2
 - Require hfsplus-tools so that images will boot on Mac
 
-* Tue Oct 02 2012 Brian C. Lane <bcl@redhat.com> 18.12-1
 - Version 18.12 (bcl)
 - Remove grub 0.97 splash (bcl)
 
-* Thu Sep 13 2012 Brian C. Lane <bcl@redhat.com> 18.11-1
 - Version 18.11 (bcl)
 - not copying UEFI files shouldn't be fatal (#856893) (bcl)
 - don't require shim and grub2-efi (#856893) (bcl)
 
-* Wed Sep 12 2012 Adam Williamson <awilliam@redhat.com> 18.10-2
 - efi_requires.patch: don't force grub2-efi and shim into the package
   list, it breaks 32-bit compose and isn't needed, we have it in comps
 
-* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.10-1
 - Version 18.10 (bcl)
 - use cp -r instead of -a (bcl)
 
-* Thu Sep 06 2012 Brian C. Lane <bcl@redhat.com> 18.9-1
 - Version 18.9 (bcl)
 - fix extra-kernel-args (#853570) (bcl)
 - New location for GRUB2 config on UEFI (#851220) (bcl)
