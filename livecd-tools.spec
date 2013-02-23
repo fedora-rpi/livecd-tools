@@ -107,7 +107,6 @@ rm -rf $RPM_BUILD_ROOT
 - rebuild used a master branch that was behind the f18 
 - branch and builds from f18 are no longer inherited.
 
-* Fri Dec 14 2012 Brian C. Lane <bcl@redhat.com> 18.14-1
 - Version 18.14 (bcl)
 - add --verifyudev to dmsetup (#885385) (bcl)
 
