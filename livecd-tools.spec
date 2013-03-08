@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 18.14
-Release: 2%{?dist}
+Version: 19.0
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -102,6 +102,13 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri Mar 08 2013 Brian C. Lane <bcl@redhat.com> 19.0-1
+- Version 19.0 (bcl)
+- iso9660 is now a module, include it (bcl)
+- correctly check for selinux state (#896610) (bcl)
+- Simplify kickstart example (#903378) (bcl)
+- default to symlink for /etc/localtime (#885246) (bcl)
+
 * Sat Feb 23 2013 Bruno Wolff III <bruno@wolff.to> 18.14-2
 - Get an up to date build in rawhide, since the mass 
 - rebuild used a master branch that was behind the f18 
