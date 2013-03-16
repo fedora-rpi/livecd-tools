@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.0
+Version: 19.1
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -102,6 +102,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Sat Mar 16 2013 Brian C. Lane <bcl@redhat.com> 19.1-1
+- Version 19.1 (bcl)
+- iso9660 module is named isofs (bcl)
+- disable dracut hostonly and rescue image (#921422) (bcl)
+
 * Fri Mar 08 2013 Brian C. Lane <bcl@redhat.com> 19.0-1
 - Version 19.0 (bcl)
 - iso9660 is now a module, include it (bcl)
