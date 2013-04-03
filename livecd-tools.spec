@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.1
+Version: 19.2
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -102,6 +102,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Apr 03 2013 Brian C. Lane <bcl@redhat.com> 19.2-1
+- Version 19.2 (bcl)
+- Use parted to check for GPT disklabel (#947653) (bcl)
+- Output details of dep check failure (bcl)
+- Properly generate kernel stanzas (#928093) (bcl)
+
 * Sat Mar 16 2013 Brian C. Lane <bcl@redhat.com> 19.1-1
 - Version 19.1 (bcl)
 - iso9660 module is named isofs (bcl)
