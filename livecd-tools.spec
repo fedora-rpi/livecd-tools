@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 19.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -28,7 +28,9 @@ Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
 Requires: lorax >= 18.3
+%ifarch %{ix86} x86_64 ppc ppc64
 Requires: hfsplus-tools
+%endif
 %ifarch %{ix86} x86_64
 Requires: syslinux
 Requires: /sbin/extlinux
@@ -102,6 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed May 08 2013 Dennis Gilmore <dennis@ausil.us> 19.2-2
+- only require hfsplus-tools on ppc and x86 arches
+
 * Wed Apr 03 2013 Brian C. Lane <bcl@redhat.com> 19.2-1
 - Version 19.2 (bcl)
 - Use parted to check for GPT disklabel (#947653) (bcl)
