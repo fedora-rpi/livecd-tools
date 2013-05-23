@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.2
-Release: 2%{?dist}
+Version: 19.3
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -104,6 +104,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Thu May 23 2013 Brian C. Lane <bcl@redhat.com> 19.3-1
+- Version 19.3 (bcl)
+- Avoid setting empty root password (#964299) (thoger)
+  CVE-2013-2069
+- Handle urlgrabber callback changes (#963645) (bcl)
+
 * Wed May 08 2013 Dennis Gilmore <dennis@ausil.us> 19.2-2
 - only require hfsplus-tools on ppc and x86 arches
 
