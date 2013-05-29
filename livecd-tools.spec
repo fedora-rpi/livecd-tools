@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 19.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -28,6 +28,7 @@ Requires: util-linux
 Requires: dosfstools
 Requires: e2fsprogs
 Requires: lorax >= 18.3
+Requires: rsync
 %ifarch %{ix86} x86_64 ppc ppc64
 Requires: hfsplus-tools
 %endif
@@ -104,6 +105,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed May 29 2013 Brian C. Lane <bcl@redhat.com> 19.3-2
+- Add requirement on rsync (#967948)
+
 * Thu May 23 2013 Brian C. Lane <bcl@redhat.com> 19.3-1
 - Version 19.3 (bcl)
 - Avoid setting empty root password (#964299) (thoger)
