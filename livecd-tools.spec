@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.3
-Release: 2%{?dist}
+Version: 19.4
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -105,6 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri May 31 2013 Brian C. Lane <bcl@redhat.com> 19.4-1
+- Version 19.4 (bcl)
+- Replace bash string parsing with awk (#962039,#969521) (bcl)
+- Fix default.target symlink (#968272) (bcl)
+
 * Wed May 29 2013 Brian C. Lane <bcl@redhat.com> 19.3-2
 - Add requirement on rsync (#967948)
 
