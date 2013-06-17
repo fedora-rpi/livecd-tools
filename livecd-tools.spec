@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.4
+Version: 19.5
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Jun 17 2013 Brian C. Lane <bcl@redhat.com> 19.5-1
+- Version 19.5 (bcl)
+- Write vconsole.conf directly (bcl)
+- litd: Add --updates option (bcl)
+
 * Fri May 31 2013 Brian C. Lane <bcl@redhat.com> 19.4-1
 - Version 19.4 (bcl)
 - Replace bash string parsing with awk (#962039,#969521) (bcl)
