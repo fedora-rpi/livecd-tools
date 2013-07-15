@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.5
+Version: 19.6
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Jul 15 2013 Brian C. Lane <bcl@redhat.com> 19.6-1
+- Version 19.6 (bcl)
+- litd: Add kickstart option (bcl)
+- ts.check output is a list of tuples (#979759) (bcl)
+- Add repo --noverifyssl support (#907707) (bcl)
+
 * Mon Jun 17 2013 Brian C. Lane <bcl@redhat.com> 19.5-1
 - Version 19.5 (bcl)
 - Write vconsole.conf directly (bcl)
