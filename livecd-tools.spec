@@ -4,8 +4,8 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 19.6
-Release: 2%{?dist}
+Version: 20.0
+Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -105,6 +105,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Aug 07 2013 Brian C. Lane <bcl@redhat.com> 20.0-1
+- Version 20.0 (bcl)
+- Install docs in unversioned doc directory (#992144) (bochecha)
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:19.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
