@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 20.0
+Version: 20.1
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,16 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Mon Nov 18 2013 Brian C. Lane <bcl@redhat.com> 20.1-1
+- add 'troubleshooting' submenu with 'basic graphics mode' to UEFI boot menu (awilliam)
+- make UEFI boot menu resemble the BIOS and non-live boot menus more (awilliam)
+- drop 'xdriver=vesa' from basic graphics mode parameters (per ajax) (awilliam)
+- Ensure filesystem modules end up in the live image initramfs. (notting)
+- Don't use mkfs.extN options for any filesystem types. (notting)
+- litd: Add --label option to override LIVE label (helio)
+- liveimage-mount: add missing import (bcl)
+- Change vfat limit from 2047 to 4095 (#995552) (bcl)
+
 * Wed Aug 07 2013 Brian C. Lane <bcl@redhat.com> 20.0-1
 - Version 20.0 (bcl)
 - Install docs in unversioned doc directory (#992144) (bochecha)
