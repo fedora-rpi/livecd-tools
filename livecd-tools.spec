@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 20.2
+Version: 20.3
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,7 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Jan 07 2014 Brian C. Lane <bcl@redhat.com> 20.3-1
+- Version 20.3 (bcl)
+- Add missing quote (#1044675) (bcl)
+
 * Tue Jan 07 2014 Brian C. Lane <bcl@redhat.com> 20.2-1
+- Version 20.2 (bcl)
 - Use LC_ALL=C for parted calls (#1045854) (bcl)
 - Fix to work with the changed yum.config._getsysver (bruno)
 - Add check for extlinux tools (#881317) (bcl)
