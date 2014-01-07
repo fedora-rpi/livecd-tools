@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 20.1
+Version: 20.2
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Tue Jan 07 2014 Brian C. Lane <bcl@redhat.com> 20.2-1
+- Use LC_ALL=C for parted calls (#1045854) (bcl)
+- Fix to work with the changed yum.config._getsysver (bruno)
+- Add check for extlinux tools (#881317) (bcl)
+- Cleanup arg parsing a bit (#725047) (bcl)
+
 * Mon Nov 18 2013 Brian C. Lane <bcl@redhat.com> 20.1-1
 - add 'troubleshooting' submenu with 'basic graphics mode' to UEFI boot menu (awilliam)
 - make UEFI boot menu resemble the BIOS and non-live boot menus more (awilliam)
