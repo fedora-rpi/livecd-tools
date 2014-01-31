@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 20.3
+Version: 20.4
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,15 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Fri Jan 31 2014 Brian C. Lane <bcl@redhat.com> 20.4-1
+- Version 20.4 (bcl)
+- Fix extlinux check (#1059278) (bcl)
+- Check kickstart for repo line (#1005580) (bcl)
+- Catch CreatorError during class init (#1005580) (bcl)
+- Add docleanup to edit-livecd (#1000744) (bcl)
+- utf8 decode unicode error strings (#1035248) (bcl)
+- Remove switch to Permissive (#1051523) (bcl)
+
 * Tue Jan 07 2014 Brian C. Lane <bcl@redhat.com> 20.3-1
 - Version 20.3 (bcl)
 - Add missing quote (#1044675) (bcl)
