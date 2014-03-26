@@ -4,7 +4,7 @@
 
 Summary: Tools for building live CDs
 Name: livecd-tools
-Version: 20.4
+Version: 20.5
 Release: 1%{?dist}
 Epoch: 1
 License: GPLv2
@@ -105,6 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/imgcreate/*.pyc
 
 %changelog
+* Wed Mar 26 2014 Brian C. Lane <bcl@redhat.com> 20.5-1
+- Version 20.5 (bcl)
+- Cleanup paths in README (bcl)
+- livecd-creator: Make sure kickstart file exists (#1074295) (bcl)
+
 * Fri Jan 31 2014 Brian C. Lane <bcl@redhat.com> 20.4-1
 - Version 20.4 (bcl)
 - Fix extlinux check (#1059278) (bcl)
