@@ -5,7 +5,7 @@
 Summary: Tools for building live CDs
 Name: livecd-tools
 Version: 20.5
-Release: 1%{?dist}
+Release: 1%{?dist}.lr1
 Epoch: 1
 License: GPLv2
 Group: System Environment/Base
@@ -16,6 +16,16 @@ URL: http://git.fedorahosted.org/git/livecd
 # make dist
 # scp livecd*.tar.bz2 fedorahosted.org:livecd
 Source0: http://fedorahosted.org/releases/l/i/livecd/%{name}-%{version}.tar.bz2
+
+Patch1: 0001-Do-not-use-local-mke2fs-feature-configuration-to-det.patch
+Patch2: 0002-Do-not-fail-if-firewall-offline-cmd-is-not-present.patch
+Patch3: 0003-Add-support-for-creating-and-mounting-FAT-filesystem.patch
+Patch4: 0004-Add-possibility-to-set-up-a-loopback-device-with-siz.patch
+Patch5: 0005-Add-partitioned-disk-creator.patch
+Patch6: 0006-Make-is-possible-to-create-a-multi-partition-image-w.patch
+Patch7: 0007-Install-GRUB-bootloader.patch
+Patch8: 0008-Configure-extlinux.patch
+
 # Drop the requirements for grub2-efi and shim: breaks 32-bit compose
 # and not needed as we have them in comps
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
@@ -72,6 +82,15 @@ like live image or appliances.
 
 %prep
 %setup -q
+
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
 
 %build
 make

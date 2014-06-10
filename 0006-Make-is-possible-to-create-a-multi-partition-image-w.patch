@@ -1,0 +1,44 @@
+From f129efe1dcbfc2ec55c504256f06d897ff4c5a57 Mon Sep 17 00:00:00 2001
+From: Lubomir Rintel <lkundrak@v3.sk>
+Date: Fri, 6 Jun 2014 18:03:04 +0200
+Subject: [PATCH 6/8] Make is possible to create a multi-partition image with
+ MBR table
+
+---
+ tools/livecd-creator | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/tools/livecd-creator b/tools/livecd-creator
+index 34533c1..79d0d92 100755
+--- a/tools/livecd-creator
++++ b/tools/livecd-creator
+@@ -63,6 +63,9 @@ def parse_options(args):
+     imgopt.add_option("", "--releasever", type="string", dest="releasever",
+                       default=None,
+                       help="Value to substitute for $releasever in kickstart repo urls")
++    imgopt.add_option("", "--mbr", action="store_true",
++                      dest="mbr", default=False,
++                      help="Create an image with MBR partition table (default: False)")
+     parser.add_option_group(imgopt)
+ 
+     # options related to the config of your system
+@@ -179,7 +182,15 @@ def main():
+         return 1
+ 
+     try:
+-        if options.image_type == 'livecd':
++        if options.mbr:
++            creator = imgcreate.PartitionedImageCreator(ks, name,
++                                            fslabel=fslabel,
++                                            releasever=options.releasever,
++                                            useplugins=options.plugins,
++                                            tmpdir=os.path.abspath(options.tmpdir),
++                                            cacheonly=options.cacheonly,
++                                            docleanup=not options.nocleanup)
++        elif options.image_type == 'livecd':
+             creator = imgcreate.LiveImageCreator(ks, name,
+                                             fslabel=fslabel,
+                                             releasever=options.releasever,
+-- 
+1.9.3
+

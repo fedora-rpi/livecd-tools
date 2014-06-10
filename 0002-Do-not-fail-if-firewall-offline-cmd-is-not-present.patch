@@ -1,0 +1,33 @@
+From b9be8b5f7c7d15a98d08a5025f1f0678184d4c3b Mon Sep 17 00:00:00 2001
+From: Lubomir Rintel <lkundrak@v3.sk>
+Date: Fri, 6 Jun 2014 18:03:04 +0200
+Subject: [PATCH 2/8] Do not fail if firewall-offline-cmd is not present
+
+This returns attempt at lokkit for firewall configuration and ignores
+failure as used to be the case with lokkit.
+---
+ imgcreate/kickstart.py | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/imgcreate/kickstart.py b/imgcreate/kickstart.py
+index 1059801..8dd5756 100644
+--- a/imgcreate/kickstart.py
++++ b/imgcreate/kickstart.py
+@@ -189,7 +189,13 @@ class AuthConfig(KickstartConfig):
+ class FirewallConfig(KickstartConfig):
+     """A class to apply a kickstart firewall configuration to a system."""
+     def apply(self, ksfirewall):
+-        args = ["/usr/bin/firewall-offline-cmd"]
++        if os.path.exists(self.path("/usr/bin/firewall-offline-cmd")):
++            args = ["/usr/bin/firewall-offline-cmd"]
++        elif os.path.exists(self.path("/usr/sbin/lokkit")):
++            args = ["/usr/sbin/lokkit", "-f", "--quiet", "--nostart"]
++        else:
++            return
++
+         # enabled is None if neither --enable or --disable is passed
+         # default to enabled if nothing has been set.
+         if ksfirewall.enabled == False:
+-- 
+1.9.3
+

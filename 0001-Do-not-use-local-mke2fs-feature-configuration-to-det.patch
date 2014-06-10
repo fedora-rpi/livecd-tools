@@ -1,0 +1,29 @@
+From 8374314473452747ff880e240e3f17c14335cb9b Mon Sep 17 00:00:00 2001
+From: Lubomir Rintel <lkundrak@v3.sk>
+Date: Fri, 6 Jun 2014 18:03:04 +0200
+Subject: [PATCH 1/8] Do not use local mke2fs feature configuration to
+ determine flags for ext fs
+
+It could have features not desirable or supported in target system;
+hardcoding them is a bit more robust.
+---
+ imgcreate/fs.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/imgcreate/fs.py b/imgcreate/fs.py
+index 37ff9d8..3d88ce9 100644
+--- a/imgcreate/fs.py
++++ b/imgcreate/fs.py
+@@ -455,7 +455,8 @@ class ExtDiskMount(DiskMount):
+         logging.info("Formating %s filesystem on %s" % (self.fstype, self.disk.device))
+         args = [ "/sbin/mkfs." + self.fstype ]
+         if self.fstype.startswith("ext"):
+-            args = args + [ "-F", "-L", self.fslabel, "-m", "1", "-b", str(self.blocksize) ]
++            args = args + [ "-F", "-L", self.fslabel, "-m", "1", "-b", str(self.blocksize),
++		"-O", "none,has_journal,extent,huge_file,flex_bg,uninit_bg,dir_nlink,extra_isize" ]
+         elif self.fstype == "xfs":
+             args = args + [ "-L", self.fslabel[0:10], "-b", "size=%s" % str(self.blocksize) ]
+         elif self.fstype == "btrfs":
+-- 
+1.9.3
+
